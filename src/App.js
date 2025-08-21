@@ -5,19 +5,20 @@
 */
 
 
-import "./App.css";
-import Navbar from "./components/Navbar";
-import StreamList from "./components/StreamList";
-import Movies from "./components/Movies";
-import Cart from "./components/Cart";
-import About from "./components/About";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import StreamList from './components/StreamList';
+import Movies from './components/Movies';
+import Cart from './components/Cart';
+import About from './components/About';
+import './App.css';
 
 function App() {
   return (
     <Router>
       <Navbar />
-      <div className="container">
+      <div className="content">
         <Routes>
           <Route path="/" element={<StreamList />} />
           <Route path="/movies" element={<Movies />} />

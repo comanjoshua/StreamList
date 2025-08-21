@@ -7,31 +7,49 @@
 
 .navbar {
   display: flex;
-  justify-content: space-between; /* Keep title on the left */
+  justify-content: space-between;
   align-items: center;
-  background: #007BFF; /* Blue header */
+  background-color: #00274c; /* navy blue */
   color: white;
   padding: 10px 20px;
+  font-family: 'Source Serif Pro', serif;
 }
 
-.navbar h1 {
-  margin: 0;
+.navbar-logo {
+  font-size: 28px;
+  font-weight: 700;
+  color: #ab0520; /* Arizona cardinal red */
 }
 
-.navbar ul {
+.navbar-menu {
   list-style: none;
-  display: flex;
-  gap: 20px;
+  display: flex; /* horizontal */
+  gap: 30px; /* space between items */
   margin: 0;
-  margin-left: auto; /* Push menu to the right */
+  padding: 0;
 }
 
-.navbar a {
-  color: white;
+.menu-link {
+  color: white; /* icon + text white */
   text-decoration: none;
-  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 8px; /* space between icon and text */
+  font-size: 18px; /* larger text */
+  font-weight: 500;
 }
 
-.navbar a:hover {
-  text-decoration: underline;
+.menu-link:hover {
+  color: #ab0520;
+}
+
+/* Material icons large and white */
+.material-icons {
+  font-size: 24px !important;
+  color: white !important;
+}
+
+.menu-link {
+  color: white !important;
+  font-size: 18px !important;
 }
