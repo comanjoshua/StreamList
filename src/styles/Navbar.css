@@ -4,52 +4,53 @@
   Joshua Coman
 */
 
-
 .navbar {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  background-color: #00274c; /* navy blue */
+  justify-content: space-between;
+  background-color: #1D4ED8; /* blue */
+  padding: 12px 24px;
   color: white;
-  padding: 10px 20px;
-  font-family: 'Source Serif Pro', serif;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
 }
 
 .navbar-logo {
-  font-size: 28px;
-  font-weight: 700;
-  color: #ab0520; /* Arizona cardinal red */
+  font-size: 2rem;
+  font-weight: bold;
 }
 
-.navbar-menu {
-  list-style: none;
-  display: flex; /* horizontal */
-  gap: 30px; /* space between items */
-  margin: 0;
-  padding: 0;
+.navbar-links {
+  display: flex;
+  gap: 20px;
 }
 
-.menu-link {
-  color: white; /* icon + text white */
-  text-decoration: none;
+.navbar-links a {
   display: flex;
   align-items: center;
-  gap: 8px; /* space between icon and text */
-  font-size: 18px; /* larger text */
-  font-weight: 500;
+  gap: 6px;
+  color: white;
+  text-decoration: none;
 }
 
-.menu-link:hover {
-  color: #ab0520;
+.navbar-links a:hover {
+  text-decoration: underline;
 }
 
-/* Material icons large and white */
-.material-icons {
-  font-size: 24px !important;
-  color: white !important;
+.navbar-search {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 4px;
+  padding: 4px 8px;
+  color: black;
 }
 
-.menu-link {
-  color: white !important;
-  font-size: 18px !important;
+.navbar-search input {
+  border: none;
+  outline: none;
+  padding: 4px;
 }

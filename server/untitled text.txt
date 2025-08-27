@@ -1,0 +1,38 @@
+// server/auth.js
+const bcrypt = require("bcrypt");
+
+// Number of salt rounds (cost factor). OWASP suggests at least 10–12 for bcrypt.
+const SALT_ROUNDS = 12;
+
+/**
+ * Hash a plain text password
+ * @param {string} password - User's plain text password
+ * @returns {Promise<string>} - The hashed password
+ */
+async function hashPassword(password) {
+  const salt = await bcrypt.genSalt(SALT_ROUNDS);
+  const hash = await bcrypt.hash(password, salt);
+  return hash;
+}
+
+/**
+ * Verify a plain text password against a stored hash
+ * @param {string} password - User's plain text password
+ * @param {string} storedHash - The hashed password from the database
+ * @returns {Promise<boolean>} - True if match, false if not
+ */
+async function verifyPassword(password, storedHash) {
+  return bcrypt.compare(password, storedHash);
+}
+
+// Example usage (uncomment to test directly)
+// (async () => {
+//   const myPassword = "StreamList2025!";
+//   const hashed = await hashPassword(myPassword);
+//   console.log("Hashed password:", hashed);
+//
+//   const match = await verifyPassword(myPassword, hashed);
+//   console.log("Password match:", match);
+// })();
+
+module.exports = { hashPassword, verifyPassword };

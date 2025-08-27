@@ -1,4 +1,9 @@
 /* Navbar layout */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .navbar {
   display: flex;
   justify-content: space-between;
