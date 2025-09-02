@@ -4,54 +4,31 @@
   Joshua Coman
 */
 
-import React from "react";
-import "../App.css"; // import styles
+import { Link } from "react-router-dom";
+import "./Navbar.css"; // optional: for additional styling
 
-function Navbar() {
+export default function Navbar() {
   return (
     <nav className="navbar">
-      {/* Logo on left */}
-      <a href="/" className="navbar-logo">
-        StreamList
-      </a>
-
-      {/* Centered menu */}
-      <ul className="navbar-menu">
-        <li>
-          <a href="/" className="navbar-item">
-            <span className="material-icons">home</span>
-            <span className="navbar-text">Home</span>
-          </a>
-        </li>
-        <li>
-          <a href="/watchlist" className="navbar-item">
-            <span className="material-icons">list</span>
-            <span className="navbar-text">Watchlist</span>
-          </a>
-        </li>
-        <li>
-          <a href="/cart" className="navbar-item">
-            <span className="material-icons">shopping_cart</span>
-            <span className="navbar-text">Cart</span>
-          </a>
-        </li>
-        <li>
-          <a href="/about" className="navbar-item">
-            <span className="material-icons">info</span>
-            <span className="navbar-text">About</span>
-          </a>
-        </li>
-      </ul>
-
-      {/* Search bar on right */}
-      <div className="navbar-search">
-        <input type="text" placeholder="Search..." />
-        <button>
-          <span className="material-icons">search</span>
-        </button>
+      <h1 className="logo">StreamList</h1>
+      <div className="nav-links">
+        <Link to="/" className="nav-link">
+          <span className="material-icons">home</span>
+          Home
+        </Link>
+        <Link to="/movies" className="nav-link">
+          <span className="material-icons">movie</span>
+          Movies
+        </Link>
+        <Link to="/cart" className="nav-link">
+          <span className="material-icons">shopping_cart</span>
+          Cart
+        </Link>
+        <Link to="/about" className="nav-link">
+          <span className="material-icons">info</span>
+          About
+        </Link>
       </div>
     </nav>
   );
 }
-
-export default Navbar;

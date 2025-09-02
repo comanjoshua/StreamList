@@ -3,42 +3,67 @@
   Instructor: John Russel
   Joshua Coman
 */
-/* Reset margin and padding */
+
+/* App.css */
 body {
   margin: 0;
-  font-family: 'Source Serif Pro', serif;
-  background-color: #f9f9f9;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f4f8;
 }
 
-/* Navbar container */
-.navbar {
-  display: flex;
-  justify-content: flex-end; /* menu items align to right */
-  align-items: center;
-  background-color: #1565c0; /* deep blue */
-  padding: 0.75rem 1.5rem;
-}
-
-/* Logo text (optional left side if you want to add later) */
-.navbar-logo {
-  margin-right: auto;
-  font-size: 1.5rem;
-  font-weight: 600;
+nav {
+  background-color: #1e3a8a;
   color: white;
+  display: flex;
+  padding: 1rem 2rem;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
 }
 
-/* Navbar list (horizontal) */
-.navbar-menu {
-  display: flex;
-  gap: 2rem;
-  list-style: none;
+nav h1 {
   margin: 0;
-  padding: 0;
+  font-size: 1.5rem;
 }
 
-/* Navbar items */
-.navbar-item {
-  display: flex;
-  align-items: center;
-  font-size: 1.1rem;
+nav a {
   color: white;
+  text-decoration: none;
+  margin-left: 1rem;
+  font-weight: 500;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  padding: 2rem;
+  max-width: 800px;
+  margin: auto;
+}
+
+h2 {
+  color: #1e3a8a;
+}
+
+input[type="text"] {
+  padding: 0.5rem;
+  width: 70%;
+  margin-right: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  background-color: #1e3a8a;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #3b82f6;
+}

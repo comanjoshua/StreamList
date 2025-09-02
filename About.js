@@ -4,16 +4,8 @@
   Joshua Coman
 */
 
-import React from 'react';
-import './About.css';
+import React from "react";
 
-function About() {
-  return (
-    <div className="about">
-      <h2>About Page</h2>
-      <p>This page will be expanded in Week 5.</p>
-    </div>
-  );
-}
+const About = () => <h2>About Page (Coming in Week 5)</h2>;
 
 export default About;
