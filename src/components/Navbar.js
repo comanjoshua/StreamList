@@ -4,31 +4,42 @@
   Joshua Coman
 */
 
-import { Link } from "react-router-dom";
-import "./Navbar.css"; // optional: for additional styling
+// src/components/Navbar.js
+import React from "react";
+import { NavLink } from "react-router-dom";
 
-export default function Navbar() {
+function Navbar() {
   return (
     <nav className="navbar">
-      <h1 className="logo">StreamList</h1>
-      <div className="nav-links">
-        <Link to="/" className="nav-link">
-          <span className="material-icons">home</span>
-          Home
-        </Link>
-        <Link to="/movies" className="nav-link">
-          <span className="material-icons">movie</span>
-          Movies
-        </Link>
-        <Link to="/cart" className="nav-link">
-          <span className="material-icons">shopping_cart</span>
-          Cart
-        </Link>
-        <Link to="/about" className="nav-link">
-          <span className="material-icons">info</span>
-          About
-        </Link>
-      </div>
+      <ul>
+        <li>
+          <NavLink to="/" className={({ isActive }) => (isActive ? "active" : "")}>
+            Home
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/movies" className={({ isActive }) => (isActive ? "active" : "")}>
+            Movies
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/cart" className={({ isActive }) => (isActive ? "active" : "")}>
+            Cart
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/about" className={({ isActive }) => (isActive ? "active" : "")}>
+            About
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/search" className={({ isActive }) => (isActive ? "active" : "")}>
+            Search
+          </NavLink>
+        </li>
+      </ul>
     </nav>
   );
 }
+
+export default Navbar;

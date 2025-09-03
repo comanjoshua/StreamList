@@ -4,20 +4,17 @@
   Joshua Coman
 */
 
-/* App.css */
-
 /* General body styling */
-
 body {
   font-family: Arial, sans-serif;
   margin: 0;
-  background-color: #f2f2f2;
+  background-color: #f2f2f2;  /* light grey page background */
   color: #333;
 }
 
 /* Navbar styling */
 .navbar {
-  background-color: #333;
+  background-color: #001f3f;   /* navy */
   padding: 1rem 2rem;
 }
 
@@ -34,13 +31,17 @@ body {
 }
 
 .navbar a {
-  color: white;
+  color: #ffffff;
   text-decoration: none;
   font-weight: bold;
 }
 
 .navbar a:hover {
-  color: #ffcc00;
+  color: #ffcc00; /* gold hover */
+}
+
+.navbar a.active {
+  border-bottom: 2px solid #ffcc00; /* gold underline for active page */
 }
 
 /* Content area */
@@ -48,7 +49,7 @@ body {
   padding: 2rem;
 }
 
-/* StreamList form styling */
+/* Form elements (global) */
 form {
   margin-top: 1rem;
 }
@@ -61,20 +62,22 @@ input[type="text"] {
   margin-right: 0.5rem;
 }
 
+/* Global buttons */
 button {
   padding: 0.5rem 1rem;
-  background-color: #333;
-  color: white;
+  background-color: #001f3f;   /* navy */
+  color: #ffffff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  transition: background 0.3s ease;
 }
 
 button:hover {
-  background-color: #555;
+  background-color: #004080;   /* lighter navy on hover */
 }
 
 /* Page headings */
 h2 {
-  color: #222;
+  color: #001f3f;              /* navy headings */
 }
