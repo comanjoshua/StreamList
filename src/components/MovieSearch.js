@@ -1,17 +1,60 @@
 // src/MovieSearch.js
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function MovieSearch() {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
   const [error, setError] = useState(null);
 
-  const API_KEY = "68f228097195c8c3bd263542cb8238b7"; // your TMDB key
-  const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w200"; // poster size
+  // ✅ Secure: API key loaded from environment variable
+  const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
+  const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w200";
+
+  // On first load, restore last query and re-fetch results
+  useEffect(() => {
+    const savedQuery = localStorage.getItem("movieQuery");
+    if (savedQuery) {
+      setQuery(savedQuery);
+
+      fetch(
+        `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${encodeURIComponent(
+          savedQuery
+        )}`
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.results && data.results.length > 0) {
+            setResults(data.results);
+            setError(null);
+          } else {
+            setResults([]);
+            setError("No results found");
+          }
+        })
+        .catch((err) => {
+          console.error(err);
+          setError("Error fetching movies");
+        });
+    }
+  }, [API_KEY]);
+
+  // Save query whenever it changes
+  useEffect(() => {
+    if (query) {
+      localStorage.setItem("movieQuery", query);
+    }
+  }, [query]);
+
+  // Save results whenever they change
+  useEffect(() => {
+    if (results.length > 0) {
+      localStorage.setItem("movieResults", JSON.stringify(results));
+    }
+  }, [results]);
 
   const handleSearch = async (e) => {
     e.preventDefault();
-    if (!query) return;
+    if (!query.trim()) return;
 
     try {
       const response = await fetch(
@@ -43,6 +86,7 @@ function MovieSearch() {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Enter movie title"
+          style={{ padding: "8px", width: "250px", marginRight: "10px" }}
         />
         <button type="submit">Search</button>
       </form>
